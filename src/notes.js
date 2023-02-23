@@ -26,24 +26,5 @@ const notes = [
 ];
 
 
-// =========== CRUD OPERATIONS ==============
-
-var nextKey = notes.length + 1;
-
-function createNote(title, content) {
-    notes.push({
-        key: nextKey++,
-        title: title,
-        content: content
-    });
-}
-
-function deleteNote(key) {
-    const index = notes.findIndex(note => note.key === key);
-    notes.splice(index, 1);
-}
-
-deleteNote(2);
-console.log(notes);
 export default notes;
 
