@@ -15,7 +15,7 @@ function CreateArea(props) {
     function handleSubmit(event) {
         const title = event.target[0].value;
         const content = event.target[1].value;
-        props.createNoteMethod(title, content);
+        props.createNote(title, content);
         setTitle("");
         setContent("");
         event.preventDefault();

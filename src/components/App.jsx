@@ -18,15 +18,22 @@ function App() {
         setNotes(prevNotes => [...prevNotes, newNote]);
     }
 
+    
+    function deleteNote(id) {
+        setNotes(prevNotes => prevNotes.filter(note => note.key !== id));
+    }
+
     return (
         <div>
             <Header />
-            <CreateArea createNoteMethod={createNote}/>
+            <CreateArea createNote={createNote}/>
             {notes.map(note =>
                 <Note
+                    id={note.key}
                     key={note.key}
                     title={note.title}
                     content={note.content}
+                    deleteNote={deleteNote}
                 />
 
             )}
