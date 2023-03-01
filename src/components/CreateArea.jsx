@@ -22,7 +22,7 @@ function CompressedCreateArea(props) {
 
 // Create area to be displayed when we click on the CompressedArea
 
-function FullCreateArea(props) {
+function ExpandedCreateArea(props) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -64,18 +64,18 @@ function FullCreateArea(props) {
 
 
 function CreateArea(props) {
-    const [isCreatingContent, setIsCreatingContent] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
 
-    function handleClick() {
-        setIsCreatingContent(true);
+    function expand() {
+        setIsExpanded(true);
     }
 
     return (
         <div>
-            {isCreatingContent ?
-                <FullCreateArea /> :
+            {isExpanded ?
+                <ExpandedCreateArea /> :
                 <CompressedCreateArea
-                    handleClickFunction={handleClick}
+                    handleClickFunction={expand}
                 />}
         </div>
     )
