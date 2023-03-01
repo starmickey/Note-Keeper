@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import AddIcon from '@mui/icons-material/Add';
+import Zoom from '@mui/material/Zoom';
 
 function CreateArea(props) {
     const [title, setTitle] = useState("");
@@ -21,16 +23,21 @@ function CreateArea(props) {
         event.preventDefault();
     }
 
-    return (<form onSubmit={handleSubmit}>
-        <input
-            name="title"
-            type="text"
-            placeholder="Write your title"
-            value={title}
-            onChange={handleTitleChange}/>
-        <textarea name="content" placeholder="Write some text" rows="3" value={content} onChange={handleContentChange}></textarea>
-        <button type="submit">Add</button>
-    </form>);
+    return (
+        <form onSubmit={handleSubmit} className="create-note">
+            <input
+                name="title"
+                type="text"
+                placeholder="Write your title"
+                value={title}
+                onChange={handleTitleChange} />
+            <textarea name="content" placeholder="Write some text" rows="3" value={content} onChange={handleContentChange}></textarea>
+            <Zoom in={true}>
+                <button type="submit">
+                    <AddIcon />
+                </button>
+            </Zoom>
+        </form>);
 }
 
 export default CreateArea;
