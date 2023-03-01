@@ -63,6 +63,10 @@ function ExpandedCreateArea(props) {
 }
 
 
+
+
+// Main component
+
 function CreateArea(props) {
     const [isExpanded, setIsExpanded] = useState(false);
 
