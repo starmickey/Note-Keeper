@@ -2,7 +2,27 @@ import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import Zoom from '@mui/material/Zoom';
 
-function CreateArea(props) {
+
+
+// Create Area to be displayed when we start the app
+
+function CompressedCreateArea(props) {
+    return (
+        <form className="create-note">
+            <textarea
+                name="content"
+                placeholder="Write some text"
+                rows="1"
+                onClick={props.handleClickFunction}>
+            </textarea>
+        </form>
+    )
+}
+
+
+// Create area to be displayed when we click on the CompressedArea
+
+function FullCreateArea(props) {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
 
@@ -37,7 +57,28 @@ function CreateArea(props) {
                     <AddIcon />
                 </button>
             </Zoom>
-        </form>);
+        </form>
+    );
+
+}
+
+
+function CreateArea(props) {
+    const [isCreatingContent, setIsCreatingContent] = useState(false);
+
+    function handleClick() {
+        setIsCreatingContent(true);
+    }
+
+    return (
+        <div>
+            {isCreatingContent ?
+                <FullCreateArea /> :
+                <CompressedCreateArea
+                    handleClickFunction={handleClick}
+                />}
+        </div>
+    )
 }
 
 export default CreateArea;
